@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details - nexServe</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container header-wrapper">
+            <div class="logo">
+                <a href="index.html">nex<span>Serve</span></a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-nav">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><span class="breadcrumb-separator">›</span></li>
+                <li><a href="services.html">Services</a></li>
+                <li><span class="breadcrumb-separator">›</span></li>
+                <li><span class="breadcrumb-current" id="breadcrumb-service">Service Details</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section style="padding: 80px 0; background: rgba(255,255,255,0.05);">
+            <div class="container">
+                <div id="service-detail-container"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>nexServe</h3>
+                    <p>Connecting people to services, building stronger communities.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <address>
+                        <p>Email: info@nexserve.org</p>
+                        <p>Phone: +94 11 234 5678</p>
+                    </address>
+                    <div class="social-media" style="margin-top: 25px;">
+                        <h4>Follow Us</h4>
+                        <p><a href="https://facebook.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">Facebook</a></p>
+                        <p><a href="https://instagram.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">Instagram</a></p>
+                        <p><a href="https://tiktok.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">TikTok</a></p>
+                        <p><a href="https://linkedin.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block;">LinkedIn</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 nexServe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Service data (same as services.html)
+        const servicesData = [
+            { id: 1, category: 'health', name: 'City Health Clinic', description: 'Free medical consultations, vaccinations, and health screenings.', contact: '020 7946 0123', location: '123 High Street, Colombo', hours: 'Mon-Fri: 8am-6pm, Sat: 9am-2pm', details: 'Our city health clinic provides comprehensive medical services including general consultations, vaccinations, health screenings, and preventive care. We have experienced doctors and nurses ready to help.' },
+            { id: 2, category: 'health', name: 'Wellness Mental Health', description: 'Free counseling for anxiety and stress.', contact: '020 7946 0456', location: '45 Park Road, Colombo', hours: 'Mon-Sat: 9am-7pm', details: 'Professional mental health counseling services for anxiety, stress, depression, and other mental health concerns. All sessions are confidential and provided by licensed therapists.' },
+            { id: 3, category: 'health', name: 'Community Dental Clinic', description: 'Low-cost dental care including check-ups.', contact: '020 7946 0789', location: '78 Victoria Street, Colombo', hours: 'Tue-Sat: 9am-5pm', details: 'Affordable dental care including check-ups, cleanings, fillings, and emergency dental services. We accept walk-ins and appointments.' },
+            { id: 4, category: 'education', name: 'Adult Learning Centre', description: 'Free courses in English, Maths, and Digital Skills.', contact: '020 7946 0321', location: '200 Commercial Road, Colombo', hours: 'Mon-Fri: 6pm-9pm', details: 'Free evening classes for adults looking to improve their English, math, and digital skills. Classes are taught by qualified teachers and all materials are provided.' },
+            { id: 5, category: 'education', name: 'Homework Help Club', description: 'Free after-school tutoring for children.', contact: '020 7946 0654', location: '32 Community Centre, Colombo', hours: 'Mon-Fri: 3pm-6pm', details: 'After-school tutoring program for children ages 6-14. Qualified tutors help with homework, reading, math, and exam preparation in a safe, supportive environment.' },
+            { id: 6, category: 'transport', name: 'Senior Transport Service', description: 'Door-to-door transport for elderly residents.', contact: '020 7946 0322', location: '12 Transport Hub, Colombo', hours: 'Mon-Fri: 7am-6pm', details: 'Free door-to-door transport service for seniors aged 65+. We provide safe, reliable transportation to medical appointments, shopping, and community events. Booking required 24 hours in advance.' },
+            { id: 7, category: 'social', name: 'City Food Bank', description: 'Emergency food parcels for families.', contact: '020 7946 0543', location: '87 Food Bank, Colombo', hours: 'Mon-Sat: 10am-4pm', details: 'Emergency food assistance for families in need. We provide weekly food parcels with fresh produce, canned goods, and essential items. No questions asked, dignity preserved.' },
+            { id: 8, category: 'social', name: 'Housing Support', description: 'Advice on housing benefits and accommodation.', contact: '020 7946 0322', location: '34 Housing Centre, Colombo', hours: 'Mon-Fri: 9am-5pm', details: 'Free housing advice including help with housing benefits, finding accommodation, dealing with landlords, and preventing homelessness. Drop-in sessions available.' }
+        ];
+
+        // Get service ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceId = parseInt(urlParams.get('id'));
+
+        // Find the service
+        const service = servicesData.find(s => s.id === serviceId);
+
+        if (service) {
+            // Update breadcrumb
+            document.getElementById('breadcrumb-service').textContent = service.name;
+            
+            // Get icon
+            let icon = '';
+            if (service.category === 'health') icon = '🏥';
+            else if (service.category === 'education') icon = '📚';
+            else if (service.category === 'transport') icon = '🚌';
+            else if (service.category === 'social') icon = '🤝';
+
+            // Display service details
+            const container = document.getElementById('service-detail-container');
+            container.innerHTML = `
+                <div style="background: rgba(255,255,255,0.98); padding: 50px; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                    <div style="margin-bottom: 30px;">
+                        <span style="display: inline-block; padding: 8px 20px; background: var(--primary-light); color: var(--primary-dark); border-radius: 20px; font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+                            ${icon} ${service.category.charAt(0).toUpperCase() + service.category.slice(1)}
+                        </span>
+                    </div>
+                    
+                    <h1 style="color: var(--primary); font-size: 2.5rem; margin-bottom: 20px;">${service.name}</h1>
+                    
+                    <p style="font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; line-height: 1.8;">
+                        ${service.description}
+                    </p>
+
+                    <div style="background: var(--gray-50); padding: 30px; border-radius: 12px; margin-bottom: 30px;">
+                        <h2 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 20px;">About This Service</h2>
+                        <p style="color: var(--text-dark); font-size: 1.1rem; line-height: 1.8; margin: 0;">
+                            ${service.details}
+                        </p>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px;">
+                        <div style="background: white; padding: 25px; border-radius: 12px; border: 2px solid var(--primary-light);">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">Contact</h3>
+                            <p style="color: var(--text-dark); font-size: 1.1rem; margin: 0; font-weight: 600;">${service.contact}</p>
+                        </div>
+
+                        <div style="background: white; padding: 25px; border-radius: 12px; border: 2px solid var(--primary-light);">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📍</div>
+                            <h3 style="color: var(--primary); margin-bottom: 10px;">Location</h3>
+                            <p style="color: var(--text-dark); font-size: 1.05rem; margin: 0;">${service.location}</p>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--primary-light); padding: 25px; border-radius: 12px; border-left: 5px solid var(--primary); margin-bottom: 30px;">
+                        <div style="font-size: 2rem; margin-bottom: 10px;">🕐</div>
+                        <h3 style="color: var(--primary); margin-bottom: 10px;">Opening Hours</h3>
+                        <p style="color: var(--text-dark); font-size: 1.1rem; margin: 0; font-weight: 600;">${service.hours}</p>
+                    </div>
+
+                    <div style="display: flex; gap: 15px;">
+                        <a href="services.html" class="btn btn-outline" style="display: inline-block; padding: 15px 35px; border-radius: 16px; font-weight: 700; text-decoration: none; font-size: 1.1rem; background: transparent; color: var(--primary); border: 2px solid var(--primary);">
+                            ← Back to Services
+                        </a>
+                        <a href="contact.html" class="btn btn-primary" style="display: inline-block; padding: 15px 35px; border-radius: 16px; font-weight: 700; text-decoration: none; font-size: 1.1rem;">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            `;
+        } else {
+            // Service not found
+            const container = document.getElementById('service-detail-container');
+            container.innerHTML = `
+                <div style="background: white; padding: 60px; border-radius: 16px; text-align: center;">
+                    <h1 style="color: var(--primary); margin-bottom: 20px;">Service Not Found</h1>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 30px;">
+                        Sorry, we couldn't find the service you're looking for.
+                    </p>
+                    <a href="services.html" class="btn btn-primary" style="display: inline-block; padding: 15px 35px; border-radius: 16px; font-weight: 700; text-decoration: none; font-size: 1.1rem;">
+                        Browse All Services
+                    </a>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

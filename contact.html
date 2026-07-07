@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - nexSErve</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styles for enhanced contact page */
+        .contact-hero {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .contact-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .contact-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(45,106,79,0.9) 0%, rgba(27,77,62,0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+        
+        .contact-hero-overlay h1 {
+            color: white;
+            -webkit-text-fill-color: white;
+            background: none;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-hero-overlay p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+        }
+        
+        .contact-info-banner {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 40px 0 60px;
+        }
+        
+        .contact-info-banner-item {
+            background: white;
+            padding: 30px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-200);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info-banner-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .contact-info-banner-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .contact-info-banner-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .contact-info-banner-item p {
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+        
+        .contact-info-banner-item a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-info-banner-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .form-section {
+            padding: 60px 0;
+            background: var(--bg-light);
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 50px;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        
+        .required {
+            color: #dc2626;
+        }
+        
+        .optional {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 400;
+            margin-left: 5px;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--gray-300);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            background: white;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px var(--primary-light);
+        }
+        
+        .checkbox-group {
+            margin: 20px 0;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 12px;
+            margin-top: 3px;
+            accent-color: var(--primary);
+        }
+        
+        .checkbox-item label {
+            font-weight: 400;
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+        
+        .checkbox-item small {
+            display: block;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 2px;
+        }
+        
+        .privacy-note {
+            background: var(--primary-light);
+            padding: 15px 20px;
+            border-radius: var(--radius);
+            margin: 20px 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .error-message {
+            color: #dc2626;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .success-message {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-bottom: 25px;
+            text-align: center;
+            display: none;
+            font-weight: 600;
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        /* Fix Clear Form button contrast */
+        .btn-outline {
+            background: transparent !important;
+            color: var(--primary) !important;
+            border: 2px solid var(--primary) !important;
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary) !important;
+            color: white !important;
+        }
+        
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info-banner {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-hero-overlay h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container header-wrapper">
+            <div class="logo">
+                <a href="index.html">nex<span>Serve</span></a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-nav">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><span class="breadcrumb-separator">›</span></li>
+                <li><span class="breadcrumb-current">Contact</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main id="main">
+        <!-- Hero Image Section -->
+        <div class="container">
+            <div class="contact-hero">
+                <img src="images/contact.jpg" alt="Contact us" onerror="this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'">
+                <div class="contact-hero-overlay">
+                    <h1>Have a Question?</h1>
+                    <p>We're here to help! Fill out the form or reach us via email or phone.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Contact Info Banner -->
+        <div class="container">
+            <div class="contact-info-banner">
+                <div class="contact-info-banner-item">
+                    <div class="icon">📧</div>
+                    <h3>Email Us</h3>
+                    <p><a href="mailto:info@nexserve.org">info@nexserve.org</a></p>
+                </div>
+                <div class="contact-info-banner-item">
+                    <div class="icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p><a href="tel:+94112345678">+94 11 234 5678</a></p>
+                    <p>Mon-Fri, 9am-5pm</p>
+                </div>
+                <div class="contact-info-banner-item">
+                    <div class="icon">💬</div>
+                    <h3>Chat With Us</h3>
+                    <p>Live chat available</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <section class="form-section">
+            <div class="container">
+                <div class="form-container">
+                    <div id="contact-success" class="success-message">✅ Thank you! We'll respond within 24 hours.</div>
+                    
+                    <form id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name <span class="required">*</span></label>
+                                <input type="text" id="first-name" placeholder="Enter your first name">
+                                <div id="first-name-error" class="error-message">Please enter your first name</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="last-name">Last Name <span class="required">*</span></label>
+                                <input type="text" id="last-name" placeholder="Enter your last name">
+                                <div id="last-name-error" class="error-message">Please enter your last name</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" placeholder="your@email.com">
+                                <div id="email-error" class="error-message">Enter a valid email address</div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number <span class="optional">(optional)</span></label>
+                                <input type="tel" id="phone" placeholder="0712345678">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service-topic">Select your topic <span class="required">*</span></label>
+                            <select id="service-topic">
+                                <option value="" disabled selected>Choose a topic</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="health">Health Services</option>
+                                <option value="education">Education Services</option>
+                                <option value="transport">Transport Services</option>
+                                <option value="social">Social Services</option>
+                                <option value="feedback">Feedback or Suggestion</option>
+                            </select>
+                            <div id="topic-error" class="error-message">Please select a topic</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" rows="6" placeholder="How can we help you?"></textarea>
+                            <div id="message-error" class="error-message">Please enter your message</div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="privacy" required>
+                                <label for="privacy">
+                                    I agree to the Privacy Statement <span class="required">*</span>
+                                    <small>Your information is kept confidential.</small>
+                                </label>
+                                <div id="privacy-error" class="error-message">You must agree to the privacy policy</div>
+                            </div>
+                        </div>
+                        
+                        <div class="privacy-note">
+                            <strong>🔒 Your privacy matters:</strong> We'll respond within 24 hours during business hours (M-F, 9am-5pm).
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="reset" class="btn btn-outline">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>nexSErve</h3>
+                    <p>Connecting people to services, building stronger communities.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <address>
+                        <p>Email: info@nexserve.org</p>
+                        <p>Phone: +94 11 234 5678</p>
+                    </address>
+                    <div class="social-media" style="margin-top: 25px;">
+                        <h4>Follow Us</h4>
+                        <p><a href="https://facebook.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">Facebook</a></p>
+                        <p><a href="https://instagram.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">Instagram</a></p>
+                        <p><a href="https://tiktok.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">TikTok</a></p>
+                        <p><a href="https://linkedin.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block;">LinkedIn</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 nexServe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/contact.js"></script>
+</body>
+</html>

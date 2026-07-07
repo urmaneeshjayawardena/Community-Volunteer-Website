@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer - nexServe</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container header-wrapper">
+            <div class="logo">
+                <a href="index.html">nex<span>Serve</span></a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="volunteer.html" class="active">Volunteer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-nav">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><span class="breadcrumb-separator">›</span></li>
+                <li><span class="breadcrumb-current">Volunteer</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-header">
+            <div class="container">
+                <h1>Join Our Volunteer Program</h1>
+                <p>Make a difference in your community by volunteering with nexServe</p>
+            </div>
+        </section>
+
+        <section style="padding: 60px 0; background: rgba(255,255,255,0.05);">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                    <div>
+                        <h2 style="color: white; margin-bottom: 20px;">Why Volunteer With Us?</h2>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                            At nexServe, volunteers are the heart of our community. By giving your time, you help connect people with essential services and support those who need it most.
+                        </p>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                            Whether you have a few hours a week or can commit more time, there's a place for you in our volunteer family. Join us in building stronger, more connected communities.
+                        </p>
+                        <ul style="color: rgba(255,255,255,0.9); font-size: 1.05rem; line-height: 2; list-style: none; padding: 0;">
+                            <li>✓ Flexible scheduling</li>
+                            <li>✓ Training and support provided</li>
+                            <li>✓ Meet like-minded people</li>
+                            <li>✓ Make a real impact</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="images/volunteer.jpg" alt="Volunteers helping in the community" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Volunteer Application Form -->
+        <section style="padding: 80px 0; background: linear-gradient(135deg, var(--primary-light) 0%, white 100%);">
+            <div class="container">
+                <div style="max-width: 700px; margin: 0 auto; background: white; padding: 50px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.15);">
+                    <h2 style="color: var(--primary); text-align: center; margin-bottom: 30px;">Volunteer Application Form</h2>
+                    
+                    <div id="volunteer-success" style="background: var(--primary); color: white; padding: 15px; border-radius: 8px; margin-bottom: 25px; text-align: center; display: none; font-weight: 600;">
+                        ✅ Thank you for applying! We'll contact you within 3 business days.
+                    </div>
+
+                    <form id="volunteerForm" novalidate>
+                        <div style="margin-bottom: 20px;">
+                            <label for="vol-name" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
+                                Full Name <span style="color: #dc2626;">*</span>
+                            </label>
+                            <input type="text" id="vol-name" placeholder="Enter your full name" style="width: 100%; padding: 12px 15px; border: 2px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
+                            <div id="name-error" style="color: #dc2626; font-size: 0.9rem; margin-top: 5px; display: none;">Please enter your name</div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <label for="vol-email" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
+                                Email Address <span style="color: #dc2626;">*</span>
+                            </label>
+                            <input type="email" id="vol-email" placeholder="your@email.com" style="width: 100%; padding: 12px 15px; border: 2px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
+                            <div id="email-error" style="color: #dc2626; font-size: 0.9rem; margin-top: 5px; display: none;">Please enter a valid email</div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <label for="vol-phone" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
+                                Phone Number <span style="color: #dc2626;">*</span>
+                            </label>
+                            <input type="tel" id="vol-phone" placeholder="0712345678" style="width: 100%; padding: 12px 15px; border: 2px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
+                            <div id="phone-error" style="color: #dc2626; font-size: 0.9rem; margin-top: 5px; display: none;">Please enter a valid phone number</div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <label for="vol-area" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
+                                Area of Interest <span style="color: #dc2626;">*</span>
+                            </label>
+                            <select id="vol-area" style="width: 100%; padding: 12px 15px; border: 2px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
+                                <option value="">Choose an area...</option>
+                                <option value="health">Health Services Support</option>
+                                <option value="education">Education & Tutoring</option>
+                                <option value="transport">Transport Assistance</option>
+                                <option value="social">Social Services Support</option>
+                                <option value="admin">Administrative Support</option>
+                                <option value="outreach">Community Outreach</option>
+                            </select>
+                            <div id="area-error" style="color: #dc2626; font-size: 0.9rem; margin-top: 5px; display: none;">Please select an area</div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <label for="vol-availability" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
+                                Availability <span style="color: #dc2626;">*</span>
+                            </label>
+                            <select id="vol-availability" style="width: 100%; padding: 12px 15px; border: 2px solid var(--gray-300); border-radius: 8px; font-size: 1rem;">
+                                <option value="">Choose your availability...</option>
+                                <option value="weekdays">Weekdays (Mon-Fri)</option>
+                                <option value="weekends">Weekends (Sat-Sun)</option>
+                                <option value="flexible">Flexible / Any day</option>
+                                <option value="evenings">Evenings only</option>
+                            </select>
+                            <div id="availability-error" style="color: #dc2626; font-size: 0.9rem; margin-top: 5px; display: none;">Please select your availability</div>
+                        </div>
+
+                        <div style="margin-bottom: 20px;">
+                            <label for="vol-message" style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark);">
+                                Why do you want to volunteer? <span style="color: #dc2626;">*</span>
+                            </label>
+                            <textarea id="vol-message" rows="4" placeholder="Tell us a bit about yourself and why you'd like to volunteer..." style="width: 100%; padding: 12px 15px; border: 2px solid var(--gray-300); border-radius: 8px; font-size: 1rem; font-family: 'Inter', sans-serif; resize: vertical;"></textarea>
+                            <div id="message-error" style="color: #dc2626; font-size: 0.9rem; margin-top: 5px; display: none;">Please tell us why you want to volunteer</div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem; margin-top: 10px;">
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h3>nexServe</h3>
+                    <p>Connecting people to services, building stronger communities.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <address>
+                        <p>Email: info@nexserve.org</p>
+                        <p>Phone: +94 11 234 5678</p>
+                    </address>
+                    <div class="social-media" style="margin-top: 25px;">
+                        <h4>Follow Us</h4>
+                        <p><a href="https://facebook.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">Facebook</a></p>
+                        <p><a href="https://instagram.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">Instagram</a></p>
+                        <p><a href="https://tiktok.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">TikTok</a></p>
+                        <p><a href="https://linkedin.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block;">LinkedIn</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 nexServe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/volunteer.js"></script>
+</body>
+</html>

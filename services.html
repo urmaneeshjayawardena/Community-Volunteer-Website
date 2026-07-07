@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - nexServe</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header class="site-header">
+        <div class="container header-wrapper">
+            <div class="logo">
+                <a href="index.html">nex<span>Serve</span></a>
+            </div>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="volunteer.html">Volunteer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb-nav">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><span class="breadcrumb-separator">›</span></li>
+                <li><span class="breadcrumb-current">Services</span></li>
+            </ol>
+        </div>
+    </nav>
+
+    <main id="main">
+        <section class="page-header">
+            <div class="container">
+                <h1>Community Services</h1>
+                <p>Click the buttons below to Find your Service</p>
+            </div>
+        </section>
+
+        <section class="filter-section">
+            <div class="container">
+                <h2>Available Services</h2>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterServices('all')">All Services</button>
+                    <button class="filter-btn" onclick="filterServices('health')">🏥 Health</button>
+                    <button class="filter-btn" onclick="filterServices('education')">📚 Education</button>
+                    <button class="filter-btn" onclick="filterServices('transport')">🚌 Transport</button>
+                    <button class="filter-btn" onclick="filterServices('social')">🤝 Social</button>
+                </div>
+                
+                <div id="services-container" class="services-grid">
+                    <!-- Services will be loaded here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <h2>nexSErve</h2>
+                    <p>Connecting people to services, building stronger communities.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="volunteer.html">Volunteer</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <address>
+                        <p>Email: info@nexserve.org</p>
+                        <p>Phone: +94 11 234 5678</p>
+                    </address>
+                    <div class="social-media" style="margin-top: 25px;">
+                        <h3>Follow Us</h3>
+                        <p><a href="https://facebook.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">Facebook</a></p>
+                        <p><a href="https://instagram.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">Instagram</a></p>
+                        <p><a href="https://tiktok.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block; margin-bottom: 8px;">TikTok</a></p>
+                        <p><a href="https://linkedin.com" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: none; display: block;">LinkedIn</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 nexServe. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const servicesData = [
+            // HEALTH SERVICES
+            { id: 1, category: 'health', name: 'City Health Clinic', description: 'Free medical consultations, vaccinations, and health screenings.', contact: '020 7946 0123', location: '123 High Street, Colombo', hours: 'Mon-Fri: 8am-6pm, Sat: 9am-2pm', details: 'Our city health clinic provides comprehensive medical services including general consultations, vaccinations, health screenings, and preventive care. We have experienced doctors and nurses ready to help.' },
+            { id: 2, category: 'health', name: 'Wellness Mental Health', description: 'Free counseling for anxiety and stress.', contact: '020 7946 0456', location: '45 Park Road, Colombo', hours: 'Mon-Sat: 9am-7pm', details: 'Professional mental health counseling services for anxiety, stress, depression, and other mental health concerns. All sessions are confidential and provided by licensed therapists.' },
+            { id: 3, category: 'health', name: 'Community Dental Clinic', description: 'Low-cost dental care including check-ups.', contact: '020 7946 0789', location: '78 Victoria Street, Colombo', hours: 'Tue-Sat: 9am-5pm', details: 'Affordable dental care including check-ups, cleanings, fillings, and emergency dental services. We accept walk-ins and appointments.' },
+            
+            // EDUCATION SERVICES
+            { id: 4, category: 'education', name: 'Adult Learning Centre', description: 'Free courses in English, Maths, and Digital Skills.', contact: '020 7946 0321', location: '200 Commercial Road, Colombo', hours: 'Mon-Fri: 6pm-9pm', details: 'Free evening classes for adults looking to improve their English, math, and digital skills. Classes are taught by qualified teachers and all materials are provided.' },
+            { id: 5, category: 'education', name: 'Homework Help Club', description: 'Free after-school tutoring for children.', contact: '020 7946 0654', location: '32 Community Centre, Colombo', hours: 'Mon-Fri: 3pm-6pm', details: 'After-school tutoring program for children ages 6-14. Qualified tutors help with homework, reading, math, and exam preparation in a safe, supportive environment.' },
+            
+            // TRANSPORT SERVICES
+            { id: 6, category: 'transport', name: 'Senior Transport Service', description: 'Door-to-door transport for elderly residents.', contact: '020 7946 0322', location: '12 Transport Hub, Colombo', hours: 'Mon-Fri: 7am-6pm', details: 'Free door-to-door transport service for seniors aged 65+. We provide safe, reliable transportation to medical appointments, shopping, and community events. Booking required 24 hours in advance.' },
+            
+            // SOCIAL SERVICES
+            { id: 7, category: 'social', name: 'City Food Bank', description: 'Emergency food parcels for families.', contact: '020 7946 0543', location: '87 Food Bank, Colombo', hours: 'Mon-Sat: 10am-4pm', details: 'Emergency food assistance for families in need. We provide weekly food parcels with fresh produce, canned goods, and essential items. No questions asked, dignity preserved.' },
+            { id: 8, category: 'social', name: 'Housing Support', description: 'Advice on housing benefits and accommodation.', contact: '020 7946 0322', location: '34 Housing Centre, Colombo', hours: 'Mon-Fri: 9am-5pm', details: 'Free housing advice including help with housing benefits, finding accommodation, dealing with landlords, and preventing homelessness. Drop-in sessions available.' }
+        ];
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const category = urlParams.get('category');
+            
+            if (category) {
+                const buttons = document.querySelectorAll('.filter-btn');
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.textContent.toLowerCase().includes(category)) {
+                        btn.classList.add('active');
+                    }
+                });
+                displayServices(category);
+            } else {
+                displayServices('all');
+            }
+        };
+
+        function displayServices(category) {
+            const container = document.getElementById('services-container');
+            if (!container) return;
+            
+            let html = '';
+            
+            for (let i = 0; i < servicesData.length; i++) {
+                if (category === 'all' || servicesData[i].category === category) {
+                    let icon = '';
+                    let categoryClass = '';
+                    
+                    if (servicesData[i].category === 'health') {
+                        icon = '🏥';
+                        categoryClass = 'health';
+                    } else if (servicesData[i].category === 'education') {
+                        icon = '📚';
+                        categoryClass = 'education';
+                    } else if (servicesData[i].category === 'transport') {
+                        icon = '🚌';
+                        categoryClass = 'transport';
+                    } else if (servicesData[i].category === 'social') {
+                        icon = '🤝';
+                        categoryClass = 'social';
+                    }
+                    
+                    html += `
+                        <a href="service-detail.html?id=${servicesData[i].id}" class="service-card" style="text-decoration: none; color: inherit; display: block;">
+                            <span class="service-category ${categoryClass}">${icon} ${servicesData[i].category.charAt(0).toUpperCase() + servicesData[i].category.slice(1)}</span>
+                            <h3 class="service-name">${servicesData[i].name}</h3>
+                            <p>${servicesData[i].description}</p>
+                            <div class="service-contact">📞 ${servicesData[i].contact}</div>
+                            <div class="service-location">📍 ${servicesData[i].location}</div>
+                            <div style="margin-top: 15px; color: var(--primary); font-weight: 600;">View Details →</div>
+                        </a>
+                    `;
+                }
+            }
+            
+            container.innerHTML = html;
+        }
+
+        function filterServices(category) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('active');
+            }
+            event.target.classList.add('active');
+            
+            displayServices(category);
+        }
+    </script>
+</body>
+</html>
